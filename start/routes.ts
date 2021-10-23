@@ -19,7 +19,17 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import Database from '@ioc:Adonis/Lucid/Database'
+
+const pfx:string = "api/v1"
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.post('posts', async ({ request }) =>{
+  
+  const nombre = request.input('nombre')
+
+  return Database.from('user').select("*")
+}).prefix(pfx)
