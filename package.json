@@ -6,7 +6,9 @@
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "node server.js",
-    "lint": "eslint . --ext=.ts"
+    "lint": "eslint . --ext=.ts",
+    "docs": "node ace invoke adonis5-swagger",
+    "newController": "node ace make:controller"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.3.7",

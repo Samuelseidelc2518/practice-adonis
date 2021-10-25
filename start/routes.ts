@@ -24,8 +24,51 @@ import Empleado from 'App/Models/Empleado'
 
 const pfx:string = "api/v1"
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Task:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: integer
+ *          description: auto-generated id of the task
+ *        name:
+ *          type: string
+ *          description: the name of the task
+ *        description:
+ *          type: string
+ *          description: the description of the task
+ */
+
+/**
+ * @swagger
+ * tags:
+ *  name: Task
+ *  description: group of endpoints
+ */
+
+/**
+ * @swagger
+ * /:
+ *  get:
+ *    summary: Esto solo obtiene un string de prueba
+ *    tags: [Task]
+ *    responses:
+ *      200: 
+ *        description: Show user
+ *        content: 
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Task'
+ * 
+ */
+
 Route.get('/', async () => {
-  return 'Show user'
+  return 'https://swagger.io/docs/specification/basic-structure/'
 })
 .middleware(async (ctx, next) =>{
   ctx.response.status(200).send("hello")
