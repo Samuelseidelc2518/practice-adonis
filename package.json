@@ -28,8 +28,6 @@
     "pg": "^8.7.1",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.20",
-    "swagger-jsdoc": "^6.1.0",
-    "swagger-ui": "^3.52.5"
+    "source-map-support": "^0.5.20"
   }
 }
