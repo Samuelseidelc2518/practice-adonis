@@ -1,0 +1,31 @@
+openapi: 3.0.1
+info:
+  title: API Agencia de Viajes
+  description: Esta api se encarga de manejar los datos de los clientes en la base de datos
+  version: 1.0.0
+servers: 
+  - url: https://samuel-seidel.com/
+tags:
+  - name: clientes
+    description: este endpoint maneja toda la informacion relacionada con los clientes
+  
+paths:
+  /:
+    post:
+      tags: 
+        - clientes
+      summary: Inserta la info de un nuevo cliente en la BD.
+      parameters:
+        $ref: '#/components/parameters/token'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+              
+components:
+  parameters:
+    name: token
+      in: header
+      description: Token de autenticación.
+      required: true

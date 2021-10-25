@@ -19,17 +19,25 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import Database from '@ioc:Adonis/Lucid/Database'
+// import Database from '@ioc:Adonis/Lucid/Database'
+import Empleado from 'App/Models/Empleado'
 
 const pfx:string = "api/v1"
 
 Route.get('/', async () => {
-  return { hello: 'world' }
+  return 'Show user'
+})
+.middleware(async (ctx, next) =>{
+  ctx.response.status(200).send("hello")
+  await next()
 })
 
-Route.post('posts', async ({ request }) =>{
-  
-  const nombre = request.input('nombre')
+Route.post('people', async () =>{
+  console.log("hola")
 
-  return Database.from('user').select("*")
+  return await Empleado.query()
+  .preload('contrato', contrato =>{
+    contrato.where('id', '1')
+  })
+  .where('nombre', 'samuel')
 }).prefix(pfx)
